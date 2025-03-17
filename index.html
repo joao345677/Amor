@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Namorada</title>
+    <style>
+        body {
+            background-color: #ffcccc;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1 {
+            color: #ff4d4d;
+            margin-top: 20px;
+        }
+        .mensagem {
+            font-size: 20px;
+            color: #333;
+            width: 80%;
+            margin: 20px auto;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+        }
+        .botao {
+            background: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .botao:hover {
+            background: #cc0000;
+        }
+        @keyframes coracao {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+        }
+        .coracao {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: coracao 4s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Para Você, Meu Amor ❤️</h1>
+    
+    <img src="Site/Meu amor.jpg" alt="Foto da Minha Namorada">
+    
+    <div class="mensagem">
+        <p>Meu amor, cada dia ao seu lado é um presente maravilhoso.  
+        Eu sou muito grato(a) por ter você na minha vida e mal posso esperar para viver  
+        mais momentos incríveis juntos. Te amo para sempre! ❤️</p>
+    </div>
+    
+    <button class="botao" onclick="tocarMusica()">Toque uma Música</button>
+    
+    <audio id="musica" src="Site/Temari.mp3"></audio>
+
+    <script>
+        function tocarMusica() {
+            var musica = document.getElementById("musica");
+            if (musica.paused) {
+                musica.play();
+            } else {
+                musica.pause();
+            }
+        }
+
+        function criarCoracao() {
+            var coracao = document.createElement("div");
+            coracao.innerHTML = "❤️";
+            coracao.classList.add("coracao");
+            coracao.style.left = Math.random() * 100 + "vw";
+            coracao.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(coracao);
+            setTimeout(() => coracao.remove(), 5000);
+        }
+        
+        setInterval(criarCoracao, 500);
+    </script>
+</body>
+</html>
